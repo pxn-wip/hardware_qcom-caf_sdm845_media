@@ -23,7 +23,6 @@ libmm-vidc-def += -D_ANDROID_ICS_
 libmm-vidc-inc      := $(LOCAL_PATH)/inc
 libmm-vidc-inc      += $(call project-path-for,qcom-media)/mm-core/inc
 libmm-vidc-inc      += $(call project-path-for,qcom-media)/libc2dcolorconvert
-libmm-vidc-inc      += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 
 LOCAL_MODULE                    := libOmxVidcCommon
 LOCAL_MODULE_TAGS               := optional
@@ -40,7 +39,7 @@ LOCAL_HEADER_LIBRARIES := \
 LOCAL_SRC_FILES   += src/vidc_common.cpp
 LOCAL_SRC_FILES   += src/vidc_vendor_extensions.cpp
 
-LOCAL_ADDITIONAL_DEPENDENCIES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
+LOCAL_HEADER_LIBRARIES := generated_kernel_headers
 
 include $(BUILD_STATIC_LIBRARY)
 
